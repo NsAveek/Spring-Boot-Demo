@@ -19,10 +19,6 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-
-
-    // Define endpoints for employee operations here
-    // For example:
      @PostMapping("/add")
      public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
          return ResponseEntity.ok(employeeService.add(employee));
@@ -41,5 +37,8 @@ public class EmployeeController {
          employeeService.delete(id);
          return ResponseEntity.noContent().build();
      }
-
+     @GetMapping("/{id}")
+     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) throws Exception {
+        return ResponseEntity.ok(employeeService.findById(id).orElseThrow(() -> new Exception("Employee not found")));
+     }
 }

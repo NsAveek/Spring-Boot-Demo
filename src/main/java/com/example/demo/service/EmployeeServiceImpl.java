@@ -46,6 +46,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Optional<Employee> findById(Long id) throws Exception {
-        return Optional.ofNullable(employeeRepo.findById(id).orElseThrow(() -> new Exception("Employee not found")));
+        return  employeeRepo.findById(id);
     }
 }
