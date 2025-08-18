@@ -1,6 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Employee;
+
+import org.hibernate.annotations.Cache;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,14 +17,4 @@ public interface EmployeeService {
     Employee update(Employee employee);
     void delete(Long id);
     Optional<Employee> findById(Long id) throws Exception;
-//    @Autowired
-//    private EmployeeRepo employeeRepo;
-
-
-//    public EmployeeResponse getEmployeeById(Long id) {
-//        Optional<Employee> employee = employeeRepo.findById(id);
-//
-//        EmployeeResponse employeeResponse = modelMap.m
-//    }
-
 }
